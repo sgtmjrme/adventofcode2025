@@ -59,4 +59,4 @@ def p2():
     print(count)
 
 if __name__ == '__main__':
-    p
+    p2()
