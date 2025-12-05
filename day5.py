@@ -13,6 +13,7 @@ class FreshRange():
 def encompasses(range1: FreshRange, range2: FreshRange):
     if range1.start <= range2.start and range1.end >= range2.end:
         return True
+    return False
 
 def inside(range1: FreshRange, range2: FreshRange):
     for i in [range1.start, range1.end]:
