@@ -42,14 +42,8 @@ if __name__ == '__main__':
             final_ranges.append(test_range)
     print(final_ranges)
             
-    count = 0
-    for intline in intlines:
-        for r in final_ranges:
-            if intline >= r.start and intline <= r.end: count += 1
-    print(count)
+    #P1
+    print(sum(x > r.start and x < r.end for x in intlines for r in final_ranges))
 
     #P2
-    p2 = 0
-    for r in final_ranges:
-        p2 += r.end - r.start + 1
-    print(p2)
+    print(sum(r.end - r.start + 1 for r in final_ranges))
