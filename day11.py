@@ -12,13 +12,15 @@ def read_input(file: str) -> 'dict[str,list[str]]':
 
 @lru_cache(maxsize=10000)
 def dfs(start: str, end: str, hit_fft: bool = False, hit_dac: bool = False, p2: bool = False) -> int:
-    #WARNING - DOES NOT CHECK FOR LOOPS, although that might be required or there would be infinite paths
+    #WARNING - DOES NOT CHECK FOR LOOPS
     global input_map
+    hit_dac = hit_dac or start == 'dac'
+    hit_fft = hit_fft or start == 'fft'
     if start == end: 
         return hit_dac and hit_fft if p2 else 1
     cnt: int = 0
     for s in input_map[start]:
-        cnt += dfs(s,end,hit_fft or s == 'fft', hit_dac or s == 'dac', p2)
+        cnt += dfs(s,end,hit_fft,hit_dac,p2)
     return cnt
 
 if __name__ == '__main__':
